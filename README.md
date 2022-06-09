@@ -54,7 +54,7 @@ atlas clusters describe demo-cluster
 
 Connect to your cluster
 ```bash
-mongosh "mongodb+srv://<YOUR_CONNECTION_STRING>/myFirstDatabase" --apiVersion 1 --username <YOUR_USERNAME>
+mongosh "mongodb+srv://<YOUR_CONNECTION_STRING>" --apiVersion 1 --username <YOUR_USERNAME>
 ```
 
 Add a few sample documents that contain device information
@@ -124,7 +124,7 @@ If you open a MongoDB shell and change some devices the status will update in re
 
 Connect to your cluster
 ```bash
-mongosh "mongodb+srv://<YOUR_CONNECTION_STRING>/myFirstDatabase" --apiVersion 1 --username <YOUR_USERNAME>
+mongosh "mongodb+srv://<YOUR_CONNECTION_STRING>" --apiVersion 1 --username <YOUR_USERNAME>
 ```
 ```javascript
 use device_demo;
