@@ -1,0 +1,26 @@
+<img src="assets/mongodb_logo.svg" alt="MongoDB logo" class="logo">
+<h1>
+  Event-driven web UI with Atlas App Services and Angular
+</h1>
+<div>
+  Authentication: {{ authStatus }}
+</div>
+<div>
+  Change Stream: {{ changeStreamStatus }}
+</div>
+<hr>
+<div *ngFor="let device of devices; index as i;" class="devicebox">
+  <h2>{{ device.name }}</h2>
+    <h3>
+    <span class="statusbox" [ngClass]="device.battery_level >= 20 ? 'statushigh' : 'statuslow'">
+    Battery level: {{ device.battery_level }} %
+    </span>
+    </h3>
+</div>
+<hr>
+<div *ngIf="changeStreamStatus == 'Started'">
+  Change Stream Log:
+</div>
+<pre>
+{{log}}
+</pre>

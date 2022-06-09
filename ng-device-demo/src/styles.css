@@ -1,0 +1,95 @@
+@font-face { 
+    font-family:"Euclid Circular A";
+    src:url("https://static.mongodb.com/com/fonts/EuclidCircularA-Regular-WebXL.woff2") format('woff2');
+    font-weight:normal;
+    font-display:swap;
+}
+@font-face {
+    font-family:"Euclid Circular A";
+    src:url("https://static.mongodb.com/com/fonts/EuclidCircularA-Medium-WebXL.woff2") format('woff2');
+    font-weight:500;
+    font-display:swap;
+}
+@font-face{
+    font-family:"MongoDB Value Serif";
+    src:url("https://static.mongodb.com/com/fonts/MongoDBValueSerif-Regular.woff2") format('woff2');
+    font-weight:normal;
+    font-display:swap;
+}
+@font-face{
+    font-family:"MongoDB Value Serif";
+    src:url("https://static.mongodb.com/com/fonts/MongoDBValueSerif-Medium.woff2") format('woff2');
+    font-weight:500;
+    font-display:swap;
+}
+@font-face{
+    font-family:"MongoDB Value Serif";
+    src:url("https://static.mongodb.com/com/fonts/MongoDBValueSerif-Bold.woff2") format('woff2');
+    font-weight:bold;
+    font-display:swap;
+}
+@font-face{
+    font-family:"Source Code Pro";
+    src:url("https://static.mongodb.com/com/fonts/SourceCodePro-Regular.ttf") format('truetype');
+    font-weight:normal;
+    font-display:swap;
+}
+@font-face{
+    font-family:Source Code Pro;
+    src:url("https://static.mongodb.com/com/fonts/SourceCodePro-Medium.ttf") format('truetype');
+    font-weight:500;
+    font-display:swap;
+}
+
+body {
+    margin: 10px;
+    font-family: "Euclid Circular A"; 
+}
+
+h1 {
+    font-family: "MongoDB Value Serif";
+    font-size: 32px;
+    font-weight: 400;
+    margin-top:10px;
+}
+
+h2 {
+    font-family: "Euclid Circular A";
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom:0px;
+}
+
+h3 {
+    font-family: "Euclid Circular A";
+    font-size: 18px;
+    font-weight: 500;
+    margin-top:10px;
+}
+
+hr {
+    border: 0;
+    border-bottom: 1px dashed #ccc;
+    background: #999;
+}
+
+.logo {
+    width: 140px;
+}
+
+.devicebox {
+    margin-bottom: 20px;
+}
+
+.statusbox {
+    padding: 4px;
+    color: #ffffff;
+}
+
+.statuslow {
+    background-color: #ff0000;
+}
+
+.statushigh {
+    background-color: #008000;
+}
