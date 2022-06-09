@@ -98,7 +98,7 @@ Install required packages
 npm install
 ```
 
-Add the app id and the user API key from the Atlas App Services app to [ng-device-demo/src/app/atlas.settings.ts](src/app/atlas.settings.ts)
+Add the app id and the user API key from the Atlas App Services app to [src/app/atlas.settings.ts](ng-device-demo/src/app/atlas.settings.ts)
 ```javascript
 export class AtlasSettings {
     
