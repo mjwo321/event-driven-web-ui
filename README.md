@@ -22,6 +22,9 @@ https://www.mongodb.com/docs/atlas/cli/stable/install-atlas-cli/
 6. Install the Atlas App Services / Realm CLI:
 https://www.mongodb.com/docs/atlas/app-services/cli/
 
+7. NPM and Angular:
+https://angular.io/guide/setup-local
+
 Alternatively, instead of the CLI, also the Atlas UI or API can be used for installation.
 
 ## Installation
@@ -83,6 +86,55 @@ Create a new user inside the app (API Key authentication), use your specific app
 ```bash
 realm-cli users create -a atlas-device-demo-***** --type api-key --name demouser
 ```
+
+### Angular App Setup
+```bash
+cd ../ng-device-demo
+```
+
+Install required packages
+```bash
+npm install
+```
+
+Add the app id and the user API key from the Atlas App Services app to [src/app/atlas.settings.ts](src/app/atlas.settings.ts)
+```javascript
+export class AtlasSettings {
+    
+    public static APP_ID = '<YOUR_APP_ID>';
+    public static APIKEY = '<YOUR_APIKEY>';
+    public static MONGODBCLIENT = 'demo-cluster';
+    public static DB = 'device_demo';
+    public static COLLECTION = 'devices';
+
+ }
+```
+
+## Run the app and update the device status
+
+
+You can now start the Angular app in your local browser:
+```bash
+ng serve --open
+```
+
+The app should show a screen with 3 devices and their battery levels.
+If you open a MongoDB shell and change some devices the status will update in real-time on the screen.
+
+Connect to your cluster
+```bash
+mongosh "mongodb+srv://<YOUR_CONNECTION_STRING>/myFirstDatabase" --apiVersion 1 --username <YOUR_USERNAME>
+```
+```bash
+db.devices.updateOne({"name":"Device 1"}{ "$set": {"battery_level":15} });
+```
+
+
+
+
+
+
+
 
 
 
