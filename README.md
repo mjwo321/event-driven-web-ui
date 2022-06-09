@@ -58,7 +58,7 @@ mongosh "mongodb+srv://<YOUR_CONNECTION_STRING>/myFirstDatabase" --apiVersion 1 
 ```
 
 Add a few sample documents that contain device information
-```bash
+```javascript
 db.devices.insertOne({"name":"Device 1","battery_level":25});
 db.devices.insertOne({"name":"Device 2","battery_level":50});
 db.devices.insertOne({"name":"Device 3","battery_level":85});
@@ -125,8 +125,8 @@ Connect to your cluster
 ```bash
 mongosh "mongodb+srv://<YOUR_CONNECTION_STRING>/myFirstDatabase" --apiVersion 1 --username <YOUR_USERNAME>
 ```
-```bash
-db.devices.updateOne({"name":"Device 1"}{ "$set": {"battery_level":15} });
+```javascript
+db.devices.updateOne({"name":"Device 1"},{ "$set": {"battery_level":15} });
 ```
 
 
