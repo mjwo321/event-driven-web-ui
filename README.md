@@ -18,6 +18,8 @@ https://www.mongodb.com/docs/atlas/security-add-mongodb-users/
 
 ## Installation
 
+### MongoDB Atlas Setup
+
 Create a new Atlas cluster (alternatively you can also use an existing one)
 
 ```bash
@@ -29,11 +31,10 @@ Within a few minutes your cluster is ready and can be used. You may follow the p
 atlas clusters watch demo-cluster
 ```
 
-Get the connection string
+Get the connection string (shown under connectionStrings > standardSrv)
 ```bash
 atlas clusters describe demo-cluster
 ```
-The connection string is shown under connectionStrings > standardSrv.
 
 Connect to your cluster
 ```bash
