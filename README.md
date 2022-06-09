@@ -83,7 +83,7 @@ cd atlas-device-demo
 realm-cli push
 ```
 
-Create a new user inside the app (API Key authentication), use your specific app_id. Copy and save the key. We need the app_id and key in the Angular app for authentication to Atlas App Services.
+Create a new user inside the app (API Key authentication), use your specific app_id. Copy and save the key. You need the app_id and key in the Angular app for authentication to Atlas App Services.
 ```bash
 realm-cli users create -a atlas-device-demo-***** --type api-key --name demouser
 ```
@@ -98,7 +98,7 @@ Install required packages
 npm install
 ```
 
-Add the app id and the user API key from the Atlas App Services app to [src/app/atlas.settings.ts](src/app/atlas.settings.ts)
+Add the app id and the user API key from the Atlas App Services app to [ng-device-demo/src/app/atlas.settings.ts](src/app/atlas.settings.ts)
 ```javascript
 export class AtlasSettings {
     
