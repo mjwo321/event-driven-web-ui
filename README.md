@@ -1,6 +1,6 @@
 # Event-driven web UI with MongoDB Atlas App Services and Angular
 
-Application demo that shows real-time information of several systems or devices on a web UI (e.g. a battery level).
+This is a demo application that shows real-time information of several systems or devices on a web user interface (e.g. a battery level). The device information is stored in a MongoDB Atlas database cluster and data updates lead to an automated refresh of the specific status information on the web UI. 
 
 ![](images/screen_1.png "Real-time device status information on a web application UI")
 
