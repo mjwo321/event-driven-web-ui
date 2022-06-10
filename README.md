@@ -2,7 +2,7 @@
 
 Application demo that shows real-time information of several systems or devices on a web UI (e.g. a battery level).
 
-![](images/screen_1.jpg "Real-time device status information on a web application UI")
+![](images/screen_1.png "Real-time device status information on a web application UI")
 
 ## Prerequisites
 
@@ -124,7 +124,7 @@ ng serve --open
 The app should show a screen with 3 devices and their battery levels.
 If you open a MongoDB shell and change some devices the status will update in real-time on the screen.
 
-![](images/screen_2.jpg "Be notified about updates to the database in real-time on the screen")
+![](images/screen_2.png "Be notified about updates to the database in real-time on the screen")
 
 Connect to your cluster
 ```bash
