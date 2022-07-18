@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
-import * as Realm from 'realm-web';
+import { Subject, Observable } from 'rxjs';
 import { AtlasSettings } from './atlas.settings';
+import * as Realm from 'realm-web';
 
 @Injectable({
   providedIn: 'root'
@@ -9,14 +9,12 @@ import { AtlasSettings } from './atlas.settings';
 export class AtlasService {
 
   private app =  new Realm.App({ id: AtlasSettings.APP_ID });
-  private credentials = Realm.Credentials.apiKey(AtlasSettings.APIKEY);
   private user!: Realm.User;
-
-  private changeStream = new BehaviorSubject(<any>{});
-  private changeStreamWatching = false;
+  private changeSubject = new Subject();
 
   constructor() { }
 
+  // login with api key (hardcoded key, to be used for demonstration purpose only)
   async login() {
     const credentials = Realm.Credentials.apiKey(AtlasSettings.APIKEY);
     try {
@@ -27,17 +25,20 @@ export class AtlasService {
     return this.user;
   }
 
+  // run a simple find query
   async find(query: any, options: any = {}) {
     const mongodb = this.user?.mongoClient(AtlasSettings.MONGODBCLIENT);
     const collection = mongodb?.db(AtlasSettings.DB).collection(AtlasSettings.COLLECTION);
     return await collection?.find(query, options);
   }
 
-  changeStreamSubscription(): Observable<any> {
-    return this.changeStream.asObservable();
+  // returns the changeSubject as obversable for event subscription
+  getChangeSubject(): Observable<any> {
+    return this.changeSubject.asObservable();
   }
 
-  async changeStreamStart() {
+  // watches a Change Stream and in case of inserts or updates feed the full document to the changeSubject
+  async watchForUpdates() {
     const mongo = this.user?.mongoClient(AtlasSettings.MONGODBCLIENT);
     const collection = mongo?.db(AtlasSettings.DB).collection(AtlasSettings.COLLECTION);
     if (collection) {
@@ -47,7 +48,7 @@ export class AtlasService {
           case 'update': 
           {
             const { documentKey, fullDocument } = change;
-            this.changeStream.next(fullDocument);
+            this.changeSubject.next(fullDocument);
             break;
           }
         }

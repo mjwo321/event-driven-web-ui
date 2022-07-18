@@ -6,21 +6,19 @@
   Authentication: {{ authStatus }}
 </div>
 <div>
-  Change Stream: {{ changeStreamStatus }}
+  Status Update Subscription: {{ subscriptionStarted ? 'Started' : 'Not Started' }}
+</div>
+<div>
+  <input type="button" (click)="startSubscription()" [disabled]="subscriptionStarted" value= "Start Subscription" />
 </div>
 <hr>
-<div *ngFor="let device of devices; index as i;" class="devicebox">
-  <h2>{{ device.name }}</h2>
-    <h3>
-    <span class="statusbox" [ngClass]="device.battery_level >= 20 ? 'statushigh' : 'statuslow'">
-    Battery level: {{ device.battery_level }} %
-    </span>
-    </h3>
-</div>
+<ng-container *ngFor="let device of devices; index as i;">
+  <app-device [device]="device"></app-device>
+</ng-container>
 <hr>
-<div *ngIf="changeStreamStatus == 'Started'">
-  Change Stream Log:
-</div>
+<div *ngIf="subscriptionStarted">
+  Status Update Subscription Log:
 <pre>
-{{log}}
+{{subscriptionLog}}
 </pre>
+</div>
