@@ -32,11 +32,6 @@ export class AtlasService {
     return await collection?.find(query, options);
   }
 
-  // returns the changeSubject as obversable for event subscription
-  getChangeSubject(): Observable<any> {
-    return this.changeSubject.asObservable();
-  }
-
   // watches a Change Stream and in case of inserts or updates feed the full document to the changeSubject
   async watchForUpdates() {
     const mongo = this.user?.mongoClient(AtlasSettings.MONGODBCLIENT);
@@ -54,6 +49,11 @@ export class AtlasService {
         }
       }
     }
+  }
+
+  // returns the changeSubject as obversable for event subscription
+  getChangeSubject(): Observable<any> {
+    return this.changeSubject.asObservable();
   }
 
 }
